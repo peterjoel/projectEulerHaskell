@@ -1,10 +1,9 @@
-Just my solutions to Project Euler problems in Haskell.
+Solutions to some Project Euler problems in Haskell. Some of these are from a long time ago and some are more recent.
 
-NO PEEKING if you haven't done them yourself! (unless you want to, I suppose)
+NO PEEKING if you haven't done them yourself! Not like I can stop you though..)
 
 
 All the problem modules export a `run` function with no arguments.
-
 
 They aren't all particualarly elegant or optimal.
 
