@@ -1,0 +1,40 @@
+	Sat Feb 18 20:47 2012 Time and Allocation Profiling Report  (Final)
+
+	   Main +RTS -p -RTS
+
+	total time  =        0.52 secs   (26 ticks @ 20 ms)
+	total alloc = 745,521,040 bytes  (excludes profiling overheads)
+
+COST CENTRE                    MODULE               %time %alloc
+
+isAbundant                     Problem0023           73.1    0.0
+abundantSum                    Problem0023           11.5   26.4
+factorize                      Num.Primes             7.7   21.3
+abundantNumsTo                 Problem0023            7.7   31.1
+divisors                       Num.Primes             0.0   19.9
+
+
+                                                                                               individual    inherited
+COST CENTRE              MODULE                                               no.    entries  %time %alloc   %time %alloc
+
+MAIN                     MAIN                                                   1           0   0.0    0.0   100.0  100.0
+ main                    Main                                                 304           1   0.0    0.0     0.0    0.0
+  run                    Problem0023                                          305           1   0.0    0.0     0.0    0.0
+ CAF                     GHC.IO.Handle.FD                                     235           2   0.0    0.0     0.0    0.0
+ CAF                     GHC.IO.Encoding.Iconv                                196           2   0.0    0.0     0.0    0.0
+ CAF                     GHC.Conc.Signal                                      189           1   0.0    0.0     0.0    0.0
+ CAF                     Problem0023                                          185           7   0.0    0.0   100.0   99.9
+  abundantNums           Problem0023                                          315           2   0.0    0.8     0.0    0.9
+   abundantNumsTo        Problem0023                                          316           1   0.0    0.1     0.0    0.1
+  abundantNumsTo         Problem0023                                          309           0   0.0    0.4     7.7   41.6
+   isAbundant'           Problem0023                                          310       28128   0.0    0.0     7.7   41.2
+    divisors             Num.Primes                                           311       56256   0.0   19.9     7.7   41.2
+     factorize           Num.Primes                                           312       28128   7.7   21.3     7.7   21.3
+  calc                   Problem0023                                          306           1   0.0    0.3    92.3   57.4
+   abundantSum           Problem0023                                          307       28123  11.5   26.4    92.3   57.1
+    isAbundant           Problem0023                                          314     4076651  73.1    0.0    73.1    0.0
+    abundantNumsTo       Problem0023                                          308       28123   7.7   30.7     7.7   30.7
+ CAF                     Num.Primes                                           184           2   0.0    0.0     0.0    0.1
+  primesSA               Num.Primes                                           313           1   0.0    0.1     0.0    0.1
+ CAF                     Data.Time.Clock.POSIX                                160           2   0.0    0.0     0.0    0.0
+ CAF                     Data.Fixed                                           159           1   0.0    0.0     0.0    0.0

@@ -1,0 +1,57 @@
+name: projectEuler
+version: 0.0.1
+cabal-version: -any
+build-type: Simple
+license: AllRightsReserved
+license-file: ""
+copyright:
+maintainer:
+build-depends: time -any, containers -any, base -any, array -any
+stability:
+homepage:
+package-url:
+bug-reports:
+synopsis:
+description: .
+category:
+author:
+tested-with:
+data-files: problem0008.txt problem0011.txt problem0013.txt
+            problem0018.txt problem0022.txt problem0067.txt
+data-dir: data
+extra-source-files:
+extra-tmp-files:
+ 
+executable: projectEuler
+main-is: Main.hs
+buildable: True
+build-tools:
+cpp-options:
+cc-options:
+ld-options:
+pkgconfig-depends:
+frameworks:
+c-sources:
+default-language:
+other-languages:
+default-extensions:
+other-extensions:
+extensions:
+extra-libraries:
+extra-lib-dirs:
+includes:
+install-includes:
+include-dirs:
+hs-source-dirs: src
+other-modules: Problem0026 Problem0025 Problem0024 Problem0001
+               Problem0002 Problem0003 Problem0004 Problem0005 Problem0006
+               Problem0007 Problem0008 Problem0009 Problem0010 Problem0011
+               Problem0012 Problem0013 Problem0014 Problem0015 Problem0016
+               Problem0017 Problem0018 Problem0019 Problem0020 Problem0021
+               Problem0022 Problem0023 Problem0067 Num.Combinations Num.Primes
+ghc-prof-options:
+ghc-shared-options:
+ghc-options: -rtsopts
+hugs-options:
+nhc98-options:
+jhc-options:
