@@ -28,7 +28,8 @@ import Data.Maybe
 import Data.List
 import Control.Applicative
 
- 
+
+-- I didn't write this. It's quite fast 
 primesSA = 2 : prs
   where 
     prs = 3 : sieve prs 3 []

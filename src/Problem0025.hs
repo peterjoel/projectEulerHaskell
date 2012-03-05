@@ -1,14 +1,6 @@
 -----------------------------------------------------------------------------
 --
--- Module      :  Problem0025
--- Copyright   :  
--- License     :  AllRightsReserved
---
--- Maintainer  :  
--- Stability   :  
--- Portability :  
---
--- |
+--  Project Euler 25
 --
 --    The Fibonacci sequence is defined by the recurrence relation:
 --
