@@ -30,6 +30,8 @@ module Problem0026 (
 where
 
 import Data.List
+import Data.Function
+
 
 
 run :: IO Int
@@ -41,21 +43,19 @@ calc n = maxIndex $ map (cycleLen . fracDigitsWithRem . reduce) [1..n]
     where -- dividing by 2 or 5 doesn't change the cycle length, but gets 
           -- rid of the leading non-cycling digits
           reduce            = reduceBy 2 . reduceBy 5
-          reduceBy p n      = until ((/=0).(`mod` p)) (`div` p) n
-          maxIndex          = fst . maximumWith snd . zip [1..]
-          cycleLen (x:xs)   = snd $ head $ dropWhile ((/=x).fst) (zip xs [1..])
+          reduceBy p        = until ((/=0).(`mod` p)) (`div` p)
+          
+          maxIndex          = fst . maximumBy (compare `on` snd) . zip [1..]
+          
+          -- assumes that all leading non-cycles are stripped
+          cycleLen (x:xs)   = fst $ head $ dropWhile ((/=x).snd) (zip [1..] xs)
 
 
-maximumWith f = maximumBy (\x y -> f x `compare` f y)
-
-
--- | List of decimal digits, calculated by long division, paired with the 
---   previous division remainder
+-- | List of decimal digits, calculated by long division, paired with each 
+--   digit's division remainder
 fracDigitsWithRem :: Int -> [(Int, Int)]
 fracDigitsWithRem n = tail $ digits 1
   where digits p = (k, r) : digits (r*10)
           where (k, r) = divMod p n
-
-
 
 
