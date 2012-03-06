@@ -1,14 +1,6 @@
 -----------------------------------------------------------------------------
 --
--- Module      :  Problem0027
--- Copyright   :  
--- License     :  AllRightsReserved
---
--- Maintainer  :  
--- Stability   :  
--- Portability :  
---
--- |
+--  Project Euler 27
 --
 --    Euler published the remarkable quadratic formula:
 --
