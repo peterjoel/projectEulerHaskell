@@ -33,7 +33,6 @@ import Data.List
 import Data.Function
 
 
-
 run :: IO Int
 run = return $ calc 999
 
@@ -51,11 +50,11 @@ calc n = maxIndex $ map (cycleLen . fracDigitsWithRem . reduce) [1..n]
           cycleLen (x:xs)   = fst $ head $ dropWhile ((/=x).snd) (zip [1..] xs)
 
 
+
 -- | List of decimal digits, calculated by long division, paired with each 
 --   digit's division remainder
 fracDigitsWithRem :: Int -> [(Int, Int)]
 fracDigitsWithRem n = tail $ digits 1
   where digits p = (k, r) : digits (r*10)
           where (k, r) = divMod p n
-
 
