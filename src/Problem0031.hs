@@ -25,13 +25,12 @@ module Problem0031 (
 type Coin = Int
 
 run :: IO Int
-run = return $ length (ways 200 coins)
+run = return $ ways 200 coins
 
 
 coins = [200,100,50,20,10,5,2,1]
 
-ways :: Int -> [Coin] -> [[(Coin,Int)]]
-ways amount [c] = [[(c, amount `div` c)]]
-ways amount (c:coins) = concat $ map drill [0 .. amount `div` c]
-    where drill n = map ((c,n):) (ways (amount-c*n) coins)
-
+ways :: Int -> [Coin] -> Int
+ways amount [c] = 1
+ways amount (c:coins) = sum $ map count [0 .. amount `div` c]
+    where count n = ways (amount - c * n) coins
