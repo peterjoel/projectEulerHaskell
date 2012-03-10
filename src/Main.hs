@@ -1,14 +1,9 @@
 -----------------------------------------------------------------------------
 --
--- Module      :  Main
--- Copyright   :  
--- License     :  AllRightsReserved
+-- Project Euler problems runner
 --
--- Maintainer  :  
--- Stability   :  
--- Portability :  
 --
--- | All the problems have a `run` function that is in IO and accepts no 
+--  All the problems have a `run` function that is in IO and accepts no 
 --      arguments. That's so I can invoke them all the same way from here,
 --      and just swap the import.
 --
@@ -20,7 +15,7 @@ module Main (
 
 import Data.Time.Clock
 
-import Problem0030
+import Problem0031
 
 main = do t0 <- getCurrentTime
           print =<< run
