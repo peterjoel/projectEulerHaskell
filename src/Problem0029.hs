@@ -22,16 +22,19 @@
 -----------------------------------------------------------------------------
 
 {-
-    Brute force. Takes ~1 sec to run. There's probably an elegant method that 
-    is much faster. Still, this works.
+    Brute force, but fast 'enough'. 
+    Sorting and grouping is a lot faster than using nub to remove duplicates.
+    This runs in < 0.02 seconds (vs ~1 sec with nub)
 -}
 module Problem0029 (
     run
 ) where
 
-import Data.List (nub)
+import Data.List 
 
 run :: IO Int
-run = return $ length $ nub [ a^b | a <- [2..100], b <- [2..100] ]
+run = return $ (length . dedupe) [ a^b | a <- [2..100], b <- [2..100] ]
 
-
+dedupe :: Ord a => [a] -> [a]
+-- dedupe = nub
+dedupe = map head . group . sort
