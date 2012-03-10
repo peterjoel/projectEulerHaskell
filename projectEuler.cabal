@@ -6,7 +6,7 @@ license: AllRightsReserved
 license-file: ""
 copyright:
 maintainer:
-build-depends: array -any, base -any, containers -any, time -any
+build-depends: time -any, containers -any, base -any, array -any
 stability:
 homepage:
 package-url:
@@ -43,13 +43,13 @@ includes:
 install-includes:
 include-dirs:
 hs-source-dirs: src
-other-modules: Problem0029 Problem0028 Problem0027 Problem0026
-               Problem0025 Problem0024 Problem0001 Problem0002 Problem0003
-               Problem0004 Problem0005 Problem0006 Problem0007 Problem0008
-               Problem0009 Problem0010 Problem0011 Problem0012 Problem0013
-               Problem0014 Problem0015 Problem0016 Problem0017 Problem0018
-               Problem0019 Problem0020 Problem0021 Problem0022 Problem0023
-               Problem0067 Num.Combinations Num.Primes
+other-modules: Problem0030 Problem0029 Problem0028 Problem0027
+               Problem0026 Problem0025 Problem0024 Problem0001 Problem0002
+               Problem0003 Problem0004 Problem0005 Problem0006 Problem0007
+               Problem0008 Problem0009 Problem0010 Problem0011 Problem0012
+               Problem0013 Problem0014 Problem0015 Problem0016 Problem0017
+               Problem0018 Problem0019 Problem0020 Problem0021 Problem0022
+               Problem0023 Problem0067 Num.Combinations Num.Primes
 ghc-prof-options:
 ghc-shared-options:
 ghc-options: -rtsopts
