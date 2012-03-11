@@ -15,7 +15,7 @@ module Main (
 
 import Data.Time.Clock
 
-import Problem0033
+import Problem0034
 
 main = do t0 <- getCurrentTime
           print =<< run
