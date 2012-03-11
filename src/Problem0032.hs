@@ -22,17 +22,18 @@
 {-
     Pretty literal, inefficient translation of the problem. 
     
-    Using lists of digits and converting to int explicitly is more than 10x
+    Using lists of digits and converting to int explicitly is more than 50x
     faster than using String representations, though more verbose.
 -}
 module Problem0032 (
     run
 ) where
 
-import Data.List (permutations,nub)
+import Data.List (permutations,nub,foldl1')
 
 run :: IO Int
 run = return $ calc [1..9]
+
 
 
 calc = sum . nub . map third . filter isProd . concat . map parts . permutations
@@ -41,6 +42,5 @@ calc = sum . nub . map third . filter isProd . concat . map parts . permutations
           -- All possibilities have digits: A x AAAA or AA x AAA
           parts (a:b:c:d:e:rest) = [([a], [b,c,d,e], rest)
                                    ,([a,b], [c,d,e], rest)]
-          toInt as               = sum $ map pwr $ zip (reverse as) [0..]
-          pwr (x,e)              = x * 10^e
+          toInt                  = foldl1' (\a b -> 10 * a + b)
 
