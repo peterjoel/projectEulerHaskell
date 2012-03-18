@@ -30,6 +30,8 @@ module Problem0032 (
 ) where
 
 import Data.List (permutations,nub,foldl1')
+import Num.Digits
+
 
 run :: IO Int
 run = return $ calc [1..9]
@@ -37,10 +39,9 @@ run = return $ calc [1..9]
 
 
 calc = sum . nub . map third . filter isProd . concat . map parts . permutations
-    where third (_,_,b)          = toInt b
-          isProd (a,b,p)         = toInt a * toInt b == toInt p
+    where third (_,_,b)          = fromDigits b
+          isProd (a,b,p)         = fromDigits a * fromDigits b == fromDigits p
           -- All possibilities have digits: A x AAAA or AA x AAA
           parts (a:b:c:d:e:rest) = [([a], [b,c,d,e], rest)
                                    ,([a,b], [c,d,e], rest)]
-          toInt                  = foldl1' (\a b -> 10 * a + b)
-
+        
