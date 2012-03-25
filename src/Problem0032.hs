@@ -39,8 +39,8 @@ run = return $ calc [1..9]
 
 
 calc = sum . nub . map third . filter isProd . concat . map parts . permutations
-    where third (_,_,b)          = fromDigits b
-          isProd (a,b,p)         = fromDigits a * fromDigits b == fromDigits p
+    where third (_,_,b)          = fromDigitsD b
+          isProd (a,b,p)         = fromDigitsD a * fromDigitsD b == fromDigitsD p
           -- All possibilities have digits: A x AAAA or AA x AAA
           parts (a:b:c:d:e:rest) = [([a], [b,c,d,e], rest)
                                    ,([a,b], [c,d,e], rest)]

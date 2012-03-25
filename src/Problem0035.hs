@@ -30,8 +30,8 @@ run = return $ calc
 
 calc = length 
         $ concat $ filter hasAllRotations 
-        $ group $ sortWith fromDigits 
-        $ map (sort . digits) 
+        $ group $ sortWith fromDigitsD
+        $ map (sort . digitsD) 
         $ takeWhile (<1000000) allPrimes
         
         where -- only actually check the number of rotations, since they've 
