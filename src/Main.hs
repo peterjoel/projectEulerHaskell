@@ -14,12 +14,13 @@ module Main (
 ) where
 
 
-import Problem0035
+import Problem0036
 import Data.Time (diffUTCTime, getCurrentTime)
+
 
 main = do t0 <- getCurrentTime
           print =<< run
           t1 <- getCurrentTime
           putStrLn $ " in " ++ (show $ diffUTCTime t1 t0)
-          
-          
+
+
