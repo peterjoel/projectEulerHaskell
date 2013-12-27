@@ -7,10 +7,13 @@ module Num.Digits (
     ,fromDigits
     ,fromDigitsB
     ,fromDigitsD
+    ,toDigits
+    ,toDigitsB
+    ,toDigitsD
 ) where
 
 import Data.Char (digitToInt)
-import Data.List (insert, foldl1')
+import Data.List (insert, foldl')
 
 
 {-# INLINABLE digitsD #-}
@@ -22,6 +25,14 @@ digitsD = digits 10
 fromDigitsD :: Integral a => [a] -> a                                   
 fromDigitsD = fromDigits 10
 
+{-# INLINABLE toDigitsD #-}
+toDigitsD :: Integral a => a -> [a]                             
+toDigitsD = toDigits 10
+
+
+{-# INLINABLE toDigitsB #-}
+toDigitsB :: Integral a => a -> [a]                             
+toDigitsB = toDigits 2
 
 
 {-# INLINABLE digitsB #-}
@@ -43,7 +54,16 @@ digits b n = reverse $ digits' n
             
 {-# INLINABLE fromDigits #-}
 fromDigits :: Integral a => a -> [a] -> a                                   
-fromDigits b = foldl1' (\i j -> b * i + j)
+fromDigits b = foldl' (\i j -> b * i + j) 0
+
+{-# INLINABLE toDigits #-}
+toDigits :: Integral a => a -> a -> [a]
+toDigits base n = toD [] n
+        where toD ds 0 = ds 
+              toD ds n = let (d, r) = divMod n base 
+                         in toD (r:ds) d
+
+
 
 
 
