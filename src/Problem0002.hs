@@ -18,15 +18,5 @@ module Problem0002 (run) where
 run :: IO Int
 run = return $ prob2 4000000 
 
-
-prob2 limit = sumevens fibs 0
-    where sumevens (_:x:_:xs) acc  
-            | x > limit = acc
-            | otherwise = sumevens xs (acc + x)
-          fibs = [ fib i | i <- [1..] ]
-          fib 1 = 1
-          fib 2 = 2
-          fib n = fib(n-1) + fib(n-2)
-
-    
-
+prob2 limit = sum . takeWhile (<= limit) . filter even $ fibs 1 2
+    where fibs a b = a : fibs b (a+b)
